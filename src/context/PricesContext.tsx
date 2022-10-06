@@ -15,7 +15,7 @@ export const PricesProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const pricesInfo = useGetPrices();
   useEffect(() => {
     if (!pricesInfo.isFetching && !pricesInfo.error) {
-      setDagInfo(pricesInfo.data['constellation-labs']);
+      setDagInfo(pricesInfo.data['wrex']);
       setBtcInfo(pricesInfo.data['bitcoin']);
     }
   }, [pricesInfo.isFetching]);

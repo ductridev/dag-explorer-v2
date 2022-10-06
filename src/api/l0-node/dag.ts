@@ -12,7 +12,7 @@ const getUrl = () => {
 };
 
 export const useGetLatestSnapshotTotalDagSupply = () => {
-  return useFetch<TotalSupply>(REACT_APP_MAINNET_TWO_L0_NODE_URL + '/dag/total-supply');
+  return useFetch<TotalSupply>(getUrl() + '/total-supply');
 };
 
 export const useGetTotalDagSupplyBySnapshot = (ordinal: number) => {

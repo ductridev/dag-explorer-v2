@@ -36,7 +36,6 @@ export const Layout = () => {
       case 'testnet':
       default:
         changeNetwork('testnet');
-        break;
     }
   }, []);
 

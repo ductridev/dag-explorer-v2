@@ -24,17 +24,18 @@ export const Layout = () => {
   useEffect(() => {
     const detectedSubdomain = detectSubdomain();
     switch (detectedSubdomain) {
-      case 'testnet-staging':
-      case 'testnet':
-        changeNetwork('testnet');
-        break;
       case 'mainnet1-staging':
       case 'mainnet1':
         changeNetwork('mainnet1');
         break;
-      default:
+      case 'mainnet-staging':
+      case 'mainnet':
         changeNetwork('mainnet');
         break;
+      case 'testnet-staging':
+      case 'testnet':
+      default:
+        changeNetwork('testnet');
     }
   }, []);
 

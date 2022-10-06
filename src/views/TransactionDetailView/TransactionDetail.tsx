@@ -25,7 +25,7 @@ export const TransactionDetail = () => {
 
   const [dagInfo, setDagInfo] = useState(null);
   const [btcInfo, setBtcInfo] = useState(null);
-  const prices = useGetPrices();
+  // const prices = useGetPrices();
   const [error, setError] = useState<string>(undefined);
 
   const [clusterData, setClusterData] = useState(null);
@@ -37,12 +37,12 @@ export const TransactionDetail = () => {
     }
   }, [clusterInfo.isFetching]);
 
-  useEffect(() => {
-    if (!prices.isFetching && !prices.isError) {
-      setDagInfo(prices.data['constellation-labs']);
-      setBtcInfo(prices.data['bitcoin']);
-    }
-  }, [prices.isFetching]);
+  // useEffect(() => {
+  //   if (!prices.isFetching && !prices.isError) {
+  //     setDagInfo(prices.data['constellation-labs']);
+  //     setBtcInfo(prices.data['bitcoin']);
+  //   }
+  // }, [prices.isFetching]);
 
   useEffect(() => {
     if (!transaction.isFetching && !transaction.isError) {
@@ -50,13 +50,13 @@ export const TransactionDetail = () => {
     }
   }, [transaction.isFetching]);
 
-  useEffect(() => {
-    if (transaction.isError || prices.isError) {
-      setError(transaction.error.message);
-    } else {
-      setError(undefined);
-    }
-  }, [transaction.status, prices.status]);
+  // useEffect(() => {
+  //   if (transaction.isError || prices.isError) {
+  //     setError(transaction.error.message);
+  //   } else {
+  //     setError(undefined);
+  //   }
+  // }, [transaction.status, prices.status]);
   const skeleton = transaction.isFetching || !data;
   return (
     <>

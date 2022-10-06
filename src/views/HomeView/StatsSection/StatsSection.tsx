@@ -24,16 +24,16 @@ const StatsSection = () => {
     }
   }, [clusterInfo.isFetching]);
 
-  const prices = useGetPrices();
+  // const prices = useGetPrices();
 
   const formater = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 
-  useEffect(() => {
-    if (!prices.isFetching) {
-      setDagInfo(prices.data['constellation-labs']);
-      setBtcInfo(prices.data['bitcoin']);
-    }
-  }, [prices.isFetching]);
+  // useEffect(() => {
+  //   if (!prices.isFetching) {
+  //     setDagInfo(prices.data['wrex']);
+  //     setBtcInfo(prices.data['bitcoin']);
+  //   }
+  // }, [prices.isFetching]);
 
   useEffect(() => {
     if (!totalSupplyInfo.isFetching) {

@@ -25,14 +25,14 @@ export const MainnetOneTransactionDetails = () => {
 
   const [dagInfo, setDagInfo] = useState(null);
   const [btcInfo, setBtcInfo] = useState(null);
-  const prices = useGetPrices();
+  // const prices = useGetPrices();
 
-  useEffect(() => {
-    if (!prices.isFetching && !prices.isError) {
-      setDagInfo(prices.data['constellation-labs']);
-      setBtcInfo(prices.data['bitcoin']);
-    }
-  }, [prices.isFetching]);
+  // useEffect(() => {
+  //   if (!prices.isFetching && !prices.isError) {
+  //     setDagInfo(prices.data['constellation-labs']);
+  //     setBtcInfo(prices.data['bitcoin']);
+  //   }
+  // }, [prices.isFetching]);
 
   useEffect(() => {
     if (!transactionInfo.isLoading && !transactionInfo.isFetching && !transactionInfo.isError) {

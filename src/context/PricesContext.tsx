@@ -12,13 +12,13 @@ export const PricesContext = createContext<PricesContextType | null>(null);
 export const PricesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [dagInfo, setDagInfo] = useState<any>(null);
   const [btcInfo, setBtcInfo] = useState<any>(null);
-  const pricesInfo = useGetPrices();
-  useEffect(() => {
-    if (!pricesInfo.isFetching && !pricesInfo.error) {
-      setDagInfo(pricesInfo.data['wrex']);
-      setBtcInfo(pricesInfo.data['bitcoin']);
-    }
-  }, [pricesInfo.isFetching]);
+  // const pricesInfo = useGetPrices();
+  // useEffect(() => {
+  //   if (!pricesInfo.isFetching && !pricesInfo.error) {
+  //     setDagInfo(pricesInfo.data['wrex']);
+  //     setBtcInfo(pricesInfo.data['bitcoin']);
+  //   }
+  // }, [pricesInfo.isFetching]);
 
   return <PricesContext.Provider value={{ dagInfo: dagInfo, btcInfo: btcInfo }}>{children}</PricesContext.Provider>;
 };

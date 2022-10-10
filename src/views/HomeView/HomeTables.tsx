@@ -30,11 +30,11 @@ const HomeTables = ({
     if (snapshotsInfo.isError) {
       setError(snapshotsInfo.error.message);
     }
-    if (transactionsInfo.isError) {
-      if (transactionsInfo.error.message !== '404') {
-        setError(transactionsInfo.error.message);
-      }
-    }
+    // if (transactionsInfo.isError) {
+    //   if (transactionsInfo.error.message !== '404') {
+    //     setError(transactionsInfo.error.message);
+    //   }
+    // }
   }, [snapshotsInfo.isError, transactionsInfo.isError]);
 
   useEffect(() => {

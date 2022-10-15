@@ -1,7 +1,7 @@
 import { Dropdown } from './Dropdown';
 import styles from './Nav.module.scss';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../../assets/icons/HeaderLogo.svg';
+// import Logo from '../../assets/icons/HeaderLogo.svg';
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export const Nav = () => {
             className={styles.leftSide}
             onClick={() => (location.pathname === '/' ? window.location.reload() : navigate('/'))}
           >
-            <img className={styles.navSeparator} src={Logo} />
+            {/* <img className={styles.navSeparator} src={Logo} /> */}
             <p className={styles.title}>DAG Explorer</p>
           </div>
           <div className={styles.rightSide}>

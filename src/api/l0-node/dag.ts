@@ -8,7 +8,7 @@ const { REACT_APP_TESTNET_L0_NODE_URL, REACT_APP_MAINNET_TWO_L0_NODE_URL } = pro
 const getUrl = () => {
   const { network } = useContext(NetworkContext) as NetworkContextType;
   const url = network === 'mainnet' ? REACT_APP_MAINNET_TWO_L0_NODE_URL : REACT_APP_TESTNET_L0_NODE_URL;
-  return `${url}/dag`;
+  return `${url}/werx`;
 };
 
 export const useGetLatestSnapshotTotalDagSupply = () => {

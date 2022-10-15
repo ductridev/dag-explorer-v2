@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss';
-import FooterText from '../../assets/icons/FooterConstellation.svg';
+// import FooterText from '../../assets/icons/FooterConstellation.svg';
 
 export const Footer = () => {
   return (

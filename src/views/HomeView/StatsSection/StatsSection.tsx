@@ -30,7 +30,7 @@ const StatsSection = () => {
 
   // useEffect(() => {
   //   if (!prices.isFetching) {
-  //     setDagInfo(prices.data['wrex']);
+  //     setDagInfo(prices.data['WERX']);
   //     setBtcInfo(prices.data['bitcoin']);
   //   }
   // }, [prices.isFetching]);

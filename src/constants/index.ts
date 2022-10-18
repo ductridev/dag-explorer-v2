@@ -1,5 +1,5 @@
 export const COIN_IDS = {
-  dag: 'wrex',
+  dag: 'WERX',
   btc: 'bitcoin',
 };
 

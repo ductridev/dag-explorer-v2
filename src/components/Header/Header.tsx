@@ -20,7 +20,7 @@ export const Header = () => {
           <div className={styles.testnetWarning}>
             <Warning className={styles.iconWidth} color={'#f79009'} weight="fill" size={'1.5rem'} />
             <div className={styles.testnetWarningText}>
-              Note: Constellation Testnet is an experimental environment and should be considered unstable.{' '}
+              Note: DAG Testnet is an experimental environment and should be considered unstable.{' '}
             </div>
           </div>
         )}
@@ -36,7 +36,7 @@ export const Header = () => {
       <div className={styles.header}>
         <div className={`${styles.maxWidth} ${styles.center}`}>
           <div className={styles.networkHeader}>
-            <p className={'headerSubtitle'}>CONSTELLATION NETWORK</p>
+            <p className={'headerSubtitle'}>DAG</p>
             <div className={styles.networkHeaderGroup}>
               <p className={'networkName'}>{AVAILABLE_NETWORKS[network]}</p>
               {networkVersion === '2.0' && <p className={styles.badge}>2.0</p>}

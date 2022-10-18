@@ -16,6 +16,7 @@ import { ExportModal } from '../../components/Modals/ExportModal';
 import { AddressShape } from '../../components/Shapes/AddressShape';
 import { isValidAddress } from '../../utils/search';
 import { useGetAddressTotalRewards } from '../../api/block-explorer/address';
+import { SPECIAL_ADDRESSES_LIST } from '../../constants/specialAddresses';
 
 const LIMIT = 10;
 
@@ -41,7 +42,7 @@ export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    if (!isValidAddress.test(addressId)) {
+    if (!isValidAddress.test(addressId) && !SPECIAL_ADDRESSES_LIST.includes(addressId)) {
       setError('404');
     }
   }, []);
@@ -51,7 +52,7 @@ export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet
       if (addressInfo.data.length > 0) {
         setAddressTxs(addressInfo.data);
       }
-      if (addressInfo.data.length <= LIMIT) {
+      if (addressInfo.data.length < LIMIT) {
         setLastPage(true);
       } else {
         setLastPage(false);
@@ -172,8 +173,8 @@ export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet
             <div className={`${styles.flexRowBottom}`}>
               <p className="overviewText">Transactions</p>
               <div className={styles.arrows}>
-                <ArrowButton handleClick={handlePrevPage} disabled={page === 0 || addressInfo.isFetching} />
-                <ArrowButton forward handleClick={handleNextPage} disabled={addressInfo.isFetching || lastPage} />
+                <ArrowButton handleClick={handlePrevPage} disabled={page === 0 || skeleton} />
+                <ArrowButton forward handleClick={handleNextPage} disabled={skeleton || lastPage} />
               </div>
             </div>
           </div>
@@ -190,12 +191,8 @@ export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet
               <span />
 
               <div className={styles.arrows}>
-                <ArrowButton handleClick={() => handlePrevPage()} disabled={page === 0 || addressInfo.isFetching} />
-                <ArrowButton
-                  forward
-                  handleClick={() => handleNextPage()}
-                  disabled={addressInfo.isFetching || lastPage}
-                />
+                <ArrowButton handleClick={() => handlePrevPage()} disabled={page === 0 || skeleton} />
+                <ArrowButton forward handleClick={() => handleNextPage()} disabled={skeleton || lastPage} />
               </div>
             </div>
           </div>

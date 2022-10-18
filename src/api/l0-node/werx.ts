@@ -11,18 +11,18 @@ const getUrl = () => {
   return `${url}/werx`;
 };
 
-export const useGetLatestSnapshotTotalDagSupply = () => {
+export const useGetLatestSnapshotTotalWerxSupply = () => {
   return useFetch<TotalSupply>(getUrl() + '/total-supply');
 };
 
-export const useGetTotalDagSupplyBySnapshot = (ordinal: number) => {
+export const useGetTotalWerxSupplyBySnapshot = (ordinal: number) => {
   return useFetch<TotalSupply>(getUrl() + '/' + ordinal + '/total-supply');
 };
 
-export const useGetDagBalanceForAddress = (address: string) => {
+export const useGetWerxBalanceForAddress = (address: string) => {
   return useFetch<Balance>(getUrl() + '/' + address + '/balance');
 };
 
-export const useGetDagBalanceForAddressOnSnapshot = (address: string, ordinal: number) => {
+export const useGetWerxBalanceForAddressOnSnapshot = (address: string, ordinal: number) => {
   return useFetch<Balance>(getUrl() + '/' + ordinal + '/' + address + '/balance');
 };

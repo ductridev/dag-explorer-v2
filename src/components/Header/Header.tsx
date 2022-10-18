@@ -20,15 +20,7 @@ export const Header = () => {
           <div className={styles.testnetWarning}>
             <Warning className={styles.iconWidth} color={'#f79009'} weight="fill" size={'1.5rem'} />
             <div className={styles.testnetWarningText}>
-              Note: DAG Testnet is an experimental environment and should be considered unstable.{' '}
-            </div>
-          </div>
-        )}
-        {(network === 'mainnet1') && (
-          <div className={styles.testnetWarning}>
-            <Warning className={styles.iconWidth} color={'#f79009'} weight="fill" size={'1.5rem'} />
-            <div className={styles.testnetWarningText}>
-              Attention: The Mainnet 1.0 network transitioned to Mainnet 2.0 on 2022-09-28. Switch to Mainnet 2.0 to view current activity.
+              Note: WERX Testnet is an experimental environment and should be considered unstable.{' '}
             </div>
           </div>
         )}
@@ -36,11 +28,9 @@ export const Header = () => {
       <div className={styles.header}>
         <div className={`${styles.maxWidth} ${styles.center}`}>
           <div className={styles.networkHeader}>
-            <p className={'headerSubtitle'}>DAG</p>
+            <p className={'headerSubtitle'}>WERX</p>
             <div className={styles.networkHeaderGroup}>
               <p className={'networkName'}>{AVAILABLE_NETWORKS[network]}</p>
-              {networkVersion === '2.0' && <p className={styles.badge}>2.0</p>}
-              {network === 'mainnet1' && <div className={styles.badge}>1.0</div>}
             </div>
           </div>
 

@@ -18,32 +18,7 @@ export const NetworkProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const handleChange = (toNetwork: Network) => {
     setNetwork('testnet');
-    // const environment = process.env.REACT_APP_ENVIRONMENT;
-    // let switchToNetwork = toNetwork;
-    // if (environment === 'staging') {
-    //   switchToNetwork += '-staging';
-    // }
-
-    // if (window.location.href.startsWith(PROD_BASE_URL)) {
-    //   const urlTail = window.location.href.substring(PROD_BASE_URL.length);
-    //   window.location.href = 'https://' + switchToNetwork + '.dagexplorer.io/' + urlTail;
-    // }
-
-    // if (!window.location.href.includes(switchToNetwork + '.') && !window.location.href.startsWith(PROD_BASE_URL)) {
-    //   let domain = window.location.href.split('.').slice(1);
-    //   if (domain.length === 0 && window.location.href.includes('http://localhost:')) {
-    //     domain = [window.location.href.replace('http://', '')];
-    //   }
-    //   const navigateTo = (window.location.protocol + '//' + switchToNetwork + '.' + domain).replaceAll(',', '.');
-    //   window.location.href = navigateTo;
-    // }
-    // setNetwork(toNetwork);
-
-    // if (toNetwork === 'mainnet1') {
-    //   setNetworkVersion('1.0');
-    // } else {
-      setNetworkVersion('2.0');
-    // }
+    setNetworkVersion('2.0');
   };
 
   return (

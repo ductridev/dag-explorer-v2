@@ -57,7 +57,7 @@ export const MainnetOneSnapshotTable = ({
     snapshots.forEach((snap) => {
       const card: CardDataRow[] = [];
       card.push({ value: snap.height, linkTo: '/snapshots/' + snap.height, element: <SnapshotShape /> });
-      card.push({ value: formatAmount(snap.dagAmount, 8) });
+      card.push({ value: formatAmount(snap.werxAmount, 8) });
       card.push({ value: snap.txCount });
       snapshotCards.add(card);
     });

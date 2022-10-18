@@ -10,7 +10,7 @@ import { useGetTransaction } from '../../../api/mainnet_1/block-explorer';
 import { useGetPrices } from '../../../api/coingecko';
 import { SkeletonCard } from '../../../components/Card/SkeletonCard';
 import { Card } from '../../../components/Card/Card';
-import { formatAmount, formatDagPrice, formatPrice, formatTime } from '../../../utils/numbers';
+import { formatAmount, formatWerxPrice, formatPrice, formatTime } from '../../../utils/numbers';
 import { SearchBar } from '../../../components/SearchBar/SearchBar';
 import { AddressShape } from '../../../components/Shapes/AddressShape';
 import { TransactionShape } from '../../../components/Shapes/TransactionShape';
@@ -23,13 +23,13 @@ export const MainnetOneTransactionDetails = () => {
   const transactionInfo = useGetTransaction(transactionHash);
   const [error, setError] = useState<string>(undefined);
 
-  const [dagInfo, setDagInfo] = useState(null);
+  const [werxInfo, setWerxInfo] = useState(null);
   const [btcInfo, setBtcInfo] = useState(null);
   // const prices = useGetPrices();
 
   // useEffect(() => {
   //   if (!prices.isFetching && !prices.isError) {
-  //     setDagInfo(prices.data['constellation-labs']);
+  //     setWerxInfo(prices.data['constellation-labs']);
   //     setBtcInfo(prices.data['bitcoin']);
   //   }
   // }, [prices.isFetching]);
@@ -48,7 +48,7 @@ export const MainnetOneTransactionDetails = () => {
     }
   }, [transactionInfo.status]);
 
-  const skeleton = transactionInfo.isLoading || !transaction || !dagInfo;
+  const skeleton = transactionInfo.isLoading || !transaction || !werxInfo;
   return (
     <>
       <section className={`${styles.searchMobile}`}>
@@ -79,7 +79,7 @@ export const MainnetOneTransactionDetails = () => {
                         title={'AMOUNT'}
                         value={!skeleton ? formatAmount(transaction.amount, 8) : ''}
                         subValue={
-                          !skeleton && dagInfo ? '($' + formatPrice(transaction.amount, dagInfo, 2) + ' USD)' : ''
+                          !skeleton && werxInfo ? '($' + formatPrice(transaction.amount, werxInfo, 2) + ' USD)' : ''
                         }
                         skeleton={skeleton}
                       />
@@ -153,16 +153,16 @@ export const MainnetOneTransactionDetails = () => {
                   </div>
                 </div>
                 <div className={`${styles.column2}`}>
-                  {!dagInfo ? (
+                  {!werxInfo ? (
                     <>
                       <SkeletonCard />
                     </>
                   ) : (
                     <Card
-                      badge={dagInfo.usd_24h_change}
-                      headerText={'DAG PRICE'}
-                      value={'$' + dagInfo.usd}
-                      info={formatDagPrice(dagInfo, btcInfo)}
+                      badge={werxInfo.usd_24h_change}
+                      headerText={'WERX PRICE'}
+                      value={'$' + werxInfo.usd}
+                      info={formatWerxPrice(werxInfo, btcInfo)}
                     />
                   )}
                 </div>

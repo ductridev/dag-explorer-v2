@@ -28,15 +28,15 @@ export const TransactionsTable = ({
 }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  const { dagInfo } = useContext(PricesContext) as PricesContextType;
+  const { werxInfo } = useContext(PricesContext) as PricesContextType;
 
   const titles = transactions
     ? ['TXN HASH', 'TIMESTAMP', 'SNAPSHOT', 'FROM', 'TO', 'AMOUNT']
     : ['ORDINAL', 'TIMESTAMP', 'BLOCKS COUNT'];
-  const needDagInfo = transactions && transactions.length > 0;
+  const needWerxInfo = transactions && transactions.length > 0;
   const mql = window.matchMedia('(max-width: 580px)');
 
-  if ((skeleton && skeleton.showSkeleton) || (needDagInfo && !dagInfo)) {
+  if ((skeleton && skeleton.showSkeleton) || (needWerxInfo && !werxInfo)) {
     return mql.matches ? (
       <div className={styles.cards}>
         <TableCards limit={limit} showSkeleton={skeleton.showSkeleton} titles={titles} />
@@ -55,12 +55,12 @@ export const TransactionsTable = ({
   let txRows =
     transactions &&
     transactions.length > 0 &&
-    transactions.map((tx) => <TransactionRow dagInfo={dagInfo} key={tx.hash} tx={tx} icon={icon} />);
+    transactions.map((tx) => <TransactionRow werxInfo={werxInfo} key={tx.hash} tx={tx} icon={icon} />);
 
   let snapRows =
     snapshots &&
     snapshots.length > 0 &&
-    snapshots.map((snap) => <TransactionRow dagInfo={dagInfo} key={snap.hash} snapshot={snap} icon={icon} />);
+    snapshots.map((snap) => <TransactionRow werxInfo={werxInfo} key={snap.hash} snapshot={snap} icon={icon} />);
 
   const emptyRows = [];
   for (let i = 0; i < limit; i++) {

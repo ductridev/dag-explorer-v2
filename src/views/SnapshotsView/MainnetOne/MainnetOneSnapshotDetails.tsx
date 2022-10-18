@@ -31,10 +31,10 @@ export const MainnetOneSnapshotDetails = () => {
     if (!snapshotTransactions.isLoading && !snapshotTransactions.isFetching && !snapshotTransactions.isError) {
       if (snapshotTransactions.data) {
         const arrTxs: MainnetOneTransaction[] = [];
-        let dagAmount = 0;
+        let werxAmount = 0;
         let feeAmount = 0;
         Object.values(snapshotTransactions.data).map((t) => {
-          dagAmount += t.amount;
+          werxAmount += t.amount;
           feeAmount += t.fee;
           const transaction: MainnetOneTransaction = {
             amount: t.amount,
@@ -50,7 +50,7 @@ export const MainnetOneSnapshotDetails = () => {
         setSnapshotTxs(arrTxs);
 
         setSnapshot({
-          dagAmount,
+          werxAmount,
           feeAmount,
           txCount: arrTxs.length,
           height: parseInt(snapshotHeight),

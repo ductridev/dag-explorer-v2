@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
-import { useGetClusterInfo, useGetClusterRewards, useGetValidatorNodes } from '../../api/l0-node';
+import { useGetClusterInfo } from '../../api/l0-node';
 import { InfoTable } from '../../components/InfoTable/InfoTable';
 import TableController from '../../components/ValidatorsTable/TableController';
 import { ValidatorsTable } from '../../components/ValidatorsTable/ValidatorsTable';
@@ -16,13 +16,13 @@ const orderNodes = (nodes: ValidatorNode[]) => {
   return ordered.concat(nodes.filter((node) => node.status === 'Offline'));
 };
 
-export const Dashboard = ({ network }: { network: Exclude<Network, 'mainnet1'> }) => {
-  const validatorNodes = useGetValidatorNodes(network);
-  const [nodes, setNodes] = useState<ValidatorNode[]>([]);
+export const Dashboard = ({ network }: { network: Network }) => {
+  // const validatorNodes = useGetValidatorNodes(network);
+  // const [nodes, setNodes] = useState<ValidatorNode[]>([]);
   const [pages, setPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const clusterData = useGetClusterInfo();
-  const clusterRewards = useGetClusterRewards(network);
+  // const clusterRewards = useGetClusterRewards(network);
   const [validatorsAmount, setValidatorsAmount] = useState(0);
   const [lastUpdatedAt, setLastUpdatedAt] = useState(0);
   const [totalRewards, setTotalRewards] = useState(0);
@@ -32,28 +32,26 @@ export const Dashboard = ({ network }: { network: Exclude<Network, 'mainnet1'> }
   useEffect(() => {
     clusterData.isError
       ? setError(clusterData.error.message)
-      : validatorNodes.isError
-      ? setError(validatorNodes.error.message)
-      : setError(clusterRewards.error?.message);
-  }, [clusterData.isError, validatorNodes.isError, clusterRewards.isError]);
+      : 'Unknow error'
+  }, [clusterData.isError]);
 
   useEffect(() => {
-    if (!validatorNodes.isFetching && !validatorNodes.isError) {
-      setNodes(orderNodes(validatorNodes.data));
-      setPages(Math.ceil(validatorNodes.data.length / NODES_AMOUNT));
-    }
+    // if (!validatorNodes.isFetching && !validatorNodes.isError) {
+    //   setNodes(orderNodes(validatorNodes.data));
+    //   setPages(Math.ceil(validatorNodes.data.length / NODES_AMOUNT));
+    // }
     if (!clusterData.isError && !clusterData.isFetching) {
       setValidatorsAmount(clusterData.data.length);
     }
-    if (!clusterRewards.isError && !clusterRewards.isFetching) {
-      setTotalRewards(clusterRewards.data.totalRewards);
-    }
+    // if (!clusterRewards.isError && !clusterRewards.isFetching) {
+    //   setTotalRewards(clusterRewards.data.totalRewards);
+    // }
 
-    if (!clusterData.isFetching && !validatorNodes.isFetching && !clusterRewards.isFetching) {
+    if (!clusterData.isFetching ) {
       setSkeleton(false);
       setLastUpdatedAt(clusterData.dataUpdatedAt);
     }
-  }, [validatorNodes.isFetching, clusterData.isFetching, clusterRewards.isFetching]);
+  }, [clusterData.isFetching]);
 
   const handlePrevPage = () => {
     if (currentPage === 1) {
@@ -81,11 +79,11 @@ export const Dashboard = ({ network }: { network: Exclude<Network, 'mainnet1'> }
             totalRewards={totalRewards}
             lastUpdatedAt={lastUpdatedAt}
           />
-          <ValidatorsTable
+          {/* <ValidatorsTable
             nodes={nodes.slice(currentPage * NODES_AMOUNT - NODES_AMOUNT, currentPage * NODES_AMOUNT)}
             amount={NODES_AMOUNT}
             loading={skeleton}
-          />
+          /> */}
           <TableController
             handlePrevPage={handlePrevPage}
             handleNextPage={handleNextPage}

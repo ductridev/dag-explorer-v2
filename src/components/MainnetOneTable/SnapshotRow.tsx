@@ -8,7 +8,7 @@ import styles from './SnapshotRow.module.scss';
 export const SnapshotRow = ({ icon, snapshot }: { icon?: JSX.Element; snapshot?: MainnetOneSnapshot }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  const { dagInfo } = useContext(PricesContext) as PricesContextType;
+  const { werxInfo } = useContext(PricesContext) as PricesContextType;
 
   let snapRow = undefined;
   if (snapshot) {
@@ -23,10 +23,10 @@ export const SnapshotRow = ({ icon, snapshot }: { icon?: JSX.Element; snapshot?:
           </div>
           <div className={styles.txnCell}>{snapshot.txCount}</div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
-            {dagInfo && (
-              <div className={styles.usd}>{'($' + formatPrice(snapshot.dagAmount, dagInfo, 2) + ' USD)'}</div>
+            {werxInfo && (
+              <div className={styles.usd}>{'($' + formatPrice(snapshot.werxAmount, werxInfo, 2) + ' USD)'}</div>
             )}
-            <div className={styles.dag}>{formatAmount(snapshot.dagAmount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(snapshot.werxAmount, 8)}</div>
           </div>
         </>
       );
@@ -42,10 +42,10 @@ export const SnapshotRow = ({ icon, snapshot }: { icon?: JSX.Element; snapshot?:
           <div className={styles.txnCell}>{snapshot.txCount}</div>
           <div className={`${styles.txnCell} ${styles.amount}`}>{formatAmount(snapshot.feeAmount, 8)}</div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
-            {dagInfo && (
-              <div className={styles.usd}>{'($' + formatPrice(snapshot.dagAmount, dagInfo, 2) + ' USD)'}</div>
+            {werxInfo && (
+              <div className={styles.usd}>{'($' + formatPrice(snapshot.werxAmount, werxInfo, 2) + ' USD)'}</div>
             )}
-            <div className={styles.dag}>{formatAmount(snapshot.dagAmount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(snapshot.werxAmount, 8)}</div>
           </div>
         </>
       );

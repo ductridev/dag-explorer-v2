@@ -31,9 +31,6 @@ export const HomeView = () => {
           <StatsSection />
         </div>
         <div className={`${styles.row} ${styles.fila2}`}>
-          {networkVersion === '1.0' && (
-            <MainnetOneHomeTables limit={LIMIT} refetchEvery={REFETCH_EVERY} handleError={handleError} />
-          )}
           {networkVersion === '2.0' && <HomeTables limit={LIMIT} refetchEvery={REFETCH_EVERY} handleError={handleError} />}
           {!error && (
             <>

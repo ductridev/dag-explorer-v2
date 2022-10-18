@@ -25,7 +25,7 @@ export const MainnetOneTransactionTable = ({
 }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  const { dagInfo } = useContext(PricesContext) as PricesContextType;
+  const { werxInfo } = useContext(PricesContext) as PricesContextType;
   const mql = window.matchMedia('(max-width: 580px)');
   const titles = ['TXN HASH', 'TIMESTAMP', 'FROM', 'TO', 'AMOUNT'];
 
@@ -48,7 +48,7 @@ export const MainnetOneTransactionTable = ({
   const txRows =
     transactions &&
     transactions.length > 0 &&
-    transactions.map((tx) => <TransactionRow dagInfo={dagInfo} key={tx.hash} transaction={tx} icon={icon} />);
+    transactions.map((tx) => <TransactionRow werxInfo={werxInfo} key={tx.hash} transaction={tx} icon={icon} />);
 
   const emptyRows = [];
   for (let i = 0; i < 10; i++) {

@@ -1,38 +1,38 @@
 import { Card } from '../../../components/Card/Card';
 import { Skeleton } from '../../../types';
-import { formatAmount, formatDagPrice, formatMarketVol, formatTotalSupply } from '../../../utils/numbers';
+import { formatAmount, formatWerxPrice, formatMarketVol, formatTotalSupply } from '../../../utils/numbers';
 
 const formater = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 export const MainnetStats = ({
   skeleton,
-  dagInfo,
+  werxInfo,
   btcInfo,
-  dagSupply,
+  werxSupply,
 }: {
   skeleton?: Skeleton;
-  dagInfo: any;
+  werxInfo: any;
   btcInfo: any;
-  dagSupply: any;
+  werxSupply: any;
 }) => {
   return (
     <>
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
-        badge={dagInfo ? dagInfo.usd_24h_change : ''}
-        headerText={'DAG PRICE'}
-        value={dagInfo ? '$' + dagInfo.usd : ''}
-        info={dagInfo ? formatDagPrice(dagInfo, btcInfo) : ''}
+        badge={werxInfo ? werxInfo.usd_24h_change : ''}
+        headerText={'WERX PRICE'}
+        value={werxInfo ? '$' + werxInfo.usd : ''}
+        info={werxInfo ? formatWerxPrice(werxInfo, btcInfo) : ''}
       />
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
         headerText={'MARKET CAP'}
-        value={dagInfo ? '$' + formater.format(dagInfo.usd_market_cap) : ''}
-        info={dagInfo ? formatMarketVol(formater, dagInfo) : ''}
+        value={werxInfo ? '$' + formater.format(werxInfo.usd_market_cap) : ''}
+        info={werxInfo ? formatMarketVol(formater, werxInfo) : ''}
       />
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
         headerText={'CIRCULATING SUPPLY'}
-        value={formatAmount(dagSupply, 0).replace('DAG', '')}
+        value={formatAmount(werxInfo, 0).replace('WERX', '')}
         info={formatTotalSupply()}
       />
     </>

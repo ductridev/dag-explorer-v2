@@ -21,7 +21,7 @@ const LIMIT = 10;
 export const MainnetOneAddressDetails = () => {
   const { changeNetwork } = useContext(NetworkContext) as NetworkContextType;
   const { addressId } = useParams();
-  const { dagInfo } = useContext(PricesContext) as PricesContextType;
+  const { werxInfo } = useContext(PricesContext) as PricesContextType;
   const [addressTxs, setAddressTxs] = useState<MainnetOneTransaction[] | undefined>(undefined);
   const addressInfo = useGetTransactionsByAddress(addressId);
   const [startAt, setStartAt] = useState(0);
@@ -94,7 +94,7 @@ export const MainnetOneAddressDetails = () => {
     }
   };
 
-  const skeleton = addressInfo.isFetching || !dagInfo;
+  const skeleton = addressInfo.isFetching || !werxInfo;
   return (
     <>
       <section className={`${styles.searchMobile}`}>

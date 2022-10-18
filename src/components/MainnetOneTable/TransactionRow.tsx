@@ -6,12 +6,12 @@ import styles from './SnapshotRow.module.scss';
 
 export const TransactionRow = ({
   transaction,
-  dagInfo,
+  werxInfo,
   icon,
 }: {
   icon?: JSX.Element;
   transaction?: MainnetOneTransaction;
-  dagInfo?: any;
+  werxInfo?: any;
 }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -35,10 +35,10 @@ export const TransactionRow = ({
             <ReactTooltip />
           </div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
-            {dagInfo && (
-              <div className={styles.usd}>{'($' + formatPrice(transaction.amount, dagInfo, 2) + ' USD)'}</div>
+            {werxInfo && (
+              <div className={styles.usd}>{'($' + formatPrice(transaction.amount, werxInfo, 2) + ' USD)'}</div>
             )}
-            <div className={styles.dag}>{formatAmount(transaction.amount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(transaction.amount, 8)}</div>
           </div>
         </>
       );
@@ -84,10 +84,10 @@ export const TransactionRow = ({
             </div>
           </div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
-            {dagInfo && (
-              <div className={styles.usd}>{'($' + formatPrice(transaction.amount, dagInfo, 2) + ' USD)'}</div>
+            {werxInfo && (
+              <div className={styles.usd}>{'($' + formatPrice(transaction.amount, werxInfo, 2) + ' USD)'}</div>
             )}
-            <div className={styles.dag}>{formatAmount(transaction.amount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(transaction.amount, 8)}</div>
           </div>
         </>
       );

@@ -60,7 +60,7 @@ const SkeletonTransactionRow = ({ isHomePage, forSnapshots }: { isHomePage: bool
         <div className={`${styles.skeleton} ${styles.value}`} />
       </div>
     </>
-  ) : network === 'mainnet1' || forSnapshots ? (
+  ) : forSnapshots ? (
     <>
       <div className={styles2.txnCell}>
         <div className={`${styles.skeleton} ${styles.value}`} />

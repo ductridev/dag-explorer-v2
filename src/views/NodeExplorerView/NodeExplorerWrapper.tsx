@@ -7,5 +7,5 @@ import { Network } from '../../constants';
 export const NodeExplorerWrapper = () => {
   const { network, networkVersion } = useContext(NetworkContext);
 
-  return networkVersion === '2.0' ? <Dashboard network={network as Exclude<Network, 'mainnet1'>} /> : <NotFound entire errorCode={'404'} />;
+  return networkVersion === '2.0' ? <Dashboard network={network as Network} /> : <NotFound entire errorCode={'404'} />;
 };

@@ -6,16 +6,16 @@ import { NetworkContext, NetworkContextType } from '../../context/NetworkContext
 
 export { useGetLatestSnapshot, useGetSnapshot, useGetLatestSnapshotOrdinal } from './global-snapshot';
 export {
-  useGetLatestSnapshotTotalDagSupply,
-  useGetTotalDagSupplyBySnapshot,
-  useGetDagBalanceForAddress,
-  useGetDagBalanceForAddressOnSnapshot,
-} from './dag';
+  useGetLatestSnapshotTotalWerxSupply,
+  useGetTotalWerxSupplyBySnapshot,
+  useGetWerxBalanceForAddress,
+  useGetWerxBalanceForAddressOnSnapshot,
+} from './werx';
 
 const { 
   REACT_APP_TESTNET_L0_NODE_URL, 
   REACT_APP_MAINNET_TWO_L0_NODE_URL,
-  REACT_APP_DAG_EXPLORER_API_URL
+  REACT_APP_WERX_EXPLORER_API_URL
 } = process.env;
 
 const getUrl = () => {
@@ -28,15 +28,15 @@ export const useGetClusterInfo = () => {
 }
 
 export const useGetMetric = () => {
-  return useFetch<string>(getUrl() + '/metric');
+  return useFetch<string>(getUrl() + '/metrics');
 }
 
-export const useGetValidatorNodes = (network: Exclude<Network, 'mainnet1'>) => {
-  return useFetch<ValidatorNode[]>(REACT_APP_DAG_EXPLORER_API_URL + '/' + network + '/validator-nodes');
-}
+// export const useGetValidatorNodes = (network: Network) => {
+//   return useFetch<ValidatorNode[]>(REACT_APP_WERX_EXPLORER_API_URL + '/' + network + '/validator-nodes');
+// }
   
 
-export const useGetClusterRewards = (network: Exclude<Network, 'mainnet1'>) => {
-  return useFetch<{ totalRewards: number }>(REACT_APP_DAG_EXPLORER_API_URL + '/' + network + '/validator-nodes/rewards');
-}
+// export const useGetClusterRewards = (network: Network) => {
+//   return useFetch<{ totalRewards: number }>(REACT_APP_WERX_EXPLORER_API_URL + '/' + network + '/validator-nodes/rewards');
+// }
   

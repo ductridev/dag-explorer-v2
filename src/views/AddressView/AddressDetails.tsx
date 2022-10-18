@@ -26,9 +26,9 @@ type Params = {
   search_before?: string;
 };
 
-export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet1'> }) => {
+export const AddressDetails = ({ network }: { network: Network }) => {
   const { addressId } = useParams();
-  const { dagInfo } = useContext(PricesContext) as PricesContextType;
+  const { werxInfo } = useContext(PricesContext) as PricesContextType;
   const [addressTxs, setAddressTxs] = useState<Transaction[] | undefined>(undefined);
   const [balance, setBalance] = useState<number | undefined>(undefined);
   const [allTimeRewards, setAllTimeRewards] = useState<number | undefined>(undefined);
@@ -114,7 +114,7 @@ export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet
     setModalOpen(!modalOpen);
   };
 
-  const skeleton = addressInfo.isLoading || addressBalance.isLoading || totalRewards.isLoading || !dagInfo;
+  const skeleton = addressInfo.isLoading || addressBalance.isLoading || totalRewards.isLoading || !werxInfo;
 
   return (
     <>
@@ -148,22 +148,22 @@ export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet
                 <DetailRow
                   borderBottom
                   title={'BALANCE'}
-                  value={skeleton ? '' : balance ? formatAmount(balance, 8) : '0 DAG'}
-                  subValue={skeleton ? '' : balance ? '($' + formatPrice(balance, dagInfo, 2) + ' USD)' : '($0 USD)'}
+                  value={skeleton ? '' : balance ? formatAmount(balance, 8) : '0 WERX'}
+                  subValue={skeleton ? '' : balance ? '($' + formatPrice(balance, werxInfo, 2) + ' USD)' : '($0 USD)'}
                   skeleton={skeleton}
                 />
                 {!totalRewards.isFetching && !totalRewards.isLoading && allTimeRewards !== undefined && (
                   <DetailRow
                     title={'ALL-TIME REWARDS RECEIVED'}
-                    value={skeleton ? '' : allTimeRewards ? formatAmount(allTimeRewards, 8) : '0 DAG'}
+                    value={skeleton ? '' : allTimeRewards ? formatAmount(allTimeRewards, 8) : '0 WERX'}
                     subValue={
                       skeleton
                         ? ''
                         : allTimeRewards
-                        ? '($' + formatPrice(allTimeRewards, dagInfo, 2) + ' USD)'
+                        ? '($' + formatPrice(allTimeRewards, werxInfo, 2) + ' USD)'
                         : '($0 USD)'
                     }
-                    skeleton={totalRewards.isLoading || !dagInfo}
+                    skeleton={totalRewards.isLoading || !werxInfo}
                   />
                 )}
               </div>

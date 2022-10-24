@@ -10,11 +10,7 @@ import styles from './StatsSection.module.scss';
 const StatsSection = () => {
   const { network } = useContext(NetworkContext) as NetworkContextType;
 
-<<<<<<< HEAD
-  const [werxInfo, setDagInfo] = useState(null);
-=======
   const [werxInfo, setWerxInfo] = useState(null);
->>>>>>> 984ff72607a33dc813f1e4a6351d6f69f3f4f272
   const [btcInfo, setBtcInfo] = useState(null);
   const [werxTotalSupply, setWerxTotalSupply] = useState(null);
 

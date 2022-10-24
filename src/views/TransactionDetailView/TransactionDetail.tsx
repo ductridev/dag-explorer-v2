@@ -176,15 +176,9 @@ export const TransactionDetail = () => {
                     <>
                       <Card
                         badge={werxInfo.usd_24h_change}
-<<<<<<< HEAD
-                        headerText={'DAG PRICE'}
-                        value={'$' + werxInfo.usd}
-                        info={formatDagPrice(werxInfo, btcInfo)}
-=======
                         headerText={'WERX PRICE'}
                         value={'$' + werxInfo.usd}
                         info={formatWerxPrice(werxInfo, btcInfo)}
->>>>>>> 984ff72607a33dc813f1e4a6351d6f69f3f4f272
                       />
                       <Card
                         headerText={'NODE OPERATORS'}

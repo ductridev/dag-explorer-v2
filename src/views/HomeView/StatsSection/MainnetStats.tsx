@@ -1,27 +1,27 @@
 import { Card } from '../../../components/Card/Card';
 import { Skeleton } from '../../../types';
-import { formatAmount, formatDagPrice, formatMarketVol, formatTotalSupply } from '../../../utils/numbers';
+import { formatAmount, formatWerxPrice, formatMarketVol, formatTotalSupply } from '../../../utils/numbers';
 
 const formater = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 export const MainnetStats = ({
   skeleton,
   werxInfo,
   btcInfo,
-  dagSupply,
+  werxSupply,
 }: {
   skeleton?: Skeleton;
   werxInfo: any;
   btcInfo: any;
-  dagSupply: any;
+  werxSupply: any;
 }) => {
   return (
     <>
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
         badge={werxInfo ? werxInfo.usd_24h_change : ''}
-        headerText={'DAG PRICE'}
+        headerText={'WERX PRICE'}
         value={werxInfo ? '$' + werxInfo.usd : ''}
-        info={werxInfo ? formatDagPrice(werxInfo, btcInfo) : ''}
+        info={werxInfo ? formatWerxPrice(werxInfo, btcInfo) : ''}
       />
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
@@ -32,7 +32,7 @@ export const MainnetStats = ({
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
         headerText={'CIRCULATING SUPPLY'}
-        value={formatAmount(dagSupply, 0).replace('DAG', '')}
+        value={formatAmount(werxInfo, 0).replace('WERX', '')}
         info={formatTotalSupply()}
       />
     </>

@@ -9,7 +9,7 @@ export type Snapshot = {
 };
 
 export type MainnetOneSnapshot = {
-  dagAmount: number;
+  werxAmount: number;
   feeAmount: number;
   height: number;
   txCount: number;

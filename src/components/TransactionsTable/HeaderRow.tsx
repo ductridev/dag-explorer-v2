@@ -23,6 +23,7 @@ export const HeaderRow = ({ forSnapshots, headerCols }: { forSnapshots?: boolean
   }
 
   const columns = isHomePage ? (
+    (
       <>
         <div className={styles.headerColumn}>
           <p className={styles.headerText}>{forSnapshots ? 'ORDINAL' : 'TXN HASH'}</p>
@@ -34,6 +35,7 @@ export const HeaderRow = ({ forSnapshots, headerCols }: { forSnapshots?: boolean
           <p className={styles.headerText}>{forSnapshots ? 'BLOCKS' : 'AMOUNT'}</p>
         </div>
       </>
+    )
   ) : (
     <>
       <div className={`${styles.headerColumn} ${styles.topLeftBorder}`}>

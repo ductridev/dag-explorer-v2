@@ -15,7 +15,7 @@ export enum NumberFormat {
 
 const formater = new Intl.NumberFormat('en-US', { maximumFractionDigits: 8 });
 
-export const formatDagPrice = (werxInfo, btcInfo) => {
+export const formatWerxPrice = (werxInfo, btcInfo) => {
   const rounded = Math.round((werxInfo.usd + Number.EPSILON) * 100) / 100;
   const btcEquiv = (werxInfo.usd / btcInfo.usd).toFixed(8);
   return '$' + rounded + ' USD - ' + btcEquiv + ' BTC';
@@ -35,7 +35,7 @@ export const formatAmount = (amount: number, toFixed: number, forExport?: boolea
   if (regex) {
     const subString = regex[1].split('.')[1];
     if (subString && subString.length >= 2) {
-      return forExport ? regex[1] : formater.format(parseFloat(regex[1])) + ' DAG';
+      return forExport ? regex[1] : formater.format(parseFloat(regex[1])) + ' WERX';
     } else {
       toReturn = subString.length === 1 ? regex[1].concat('0') : regex[1].concat('00');
     }
@@ -44,7 +44,7 @@ export const formatAmount = (amount: number, toFixed: number, forExport?: boolea
     ? toReturn
       ? toReturn
       : formater.format(parseFloat(formatedValue))
-    : (toReturn ? formater.format(parseFloat(toReturn)) : formater.format(parseFloat(formatedValue))) + ' DAG';
+    : (toReturn ? formater.format(parseFloat(toReturn)) : formater.format(parseFloat(formatedValue))) + ' WERX';
 };
 
 export const fitStringInCell = (value: string) => value.slice(0, 5) + '...' + value.slice(value.length - 5);

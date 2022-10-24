@@ -20,7 +20,7 @@ export const Header = () => {
           <div className={styles.testnetWarning}>
             <Warning className={styles.iconWidth} color={'#f79009'} weight="fill" size={'1.5rem'} />
             <div className={styles.testnetWarningText}>
-              Note: DAG Testnet is an experimental environment and should be considered unstable.{' '}
+              Note: WERX Testnet is an experimental environment and should be considered unstable.{' '}
             </div>
           </div>
         )}

@@ -10,7 +10,7 @@ import { useGetPrices } from '../../api/coingecko';
 import { SkeletonCard } from '../../components/Card/SkeletonCard';
 import { IconType } from '../../constants';
 import { NotFound } from '../NotFoundView/NotFound';
-import { formatAmount, formatDagPrice, formatTime } from '../../utils/numbers';
+import { formatAmount, formatWerxPrice, formatTime } from '../../utils/numbers';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
 import { useGetClusterInfo } from '../../api/l0-node';
 import { AddressShape } from '../../components/Shapes/AddressShape';
@@ -23,7 +23,7 @@ export const TransactionDetail = () => {
   const transaction = useGetTransaction(transactionHash);
   const [data, setData] = useState<Transaction | undefined>(undefined);
 
-  const [werxInfo, setDagInfo] = useState(null);
+  const [werxInfo, setWerxInfo] = useState(null);
   const [btcInfo, setBtcInfo] = useState(null);
   // const prices = useGetPrices();
   const [error, setError] = useState<string>(undefined);
@@ -39,7 +39,7 @@ export const TransactionDetail = () => {
 
   // useEffect(() => {
   //   if (!prices.isFetching && !prices.isError) {
-  //     setDagInfo(prices.data['constellation-labs']);
+  //     setWerxInfo(prices.data['constellation-labs']);
   //     setBtcInfo(prices.data['bitcoin']);
   //   }
   // }, [prices.isFetching]);
@@ -176,9 +176,15 @@ export const TransactionDetail = () => {
                     <>
                       <Card
                         badge={werxInfo.usd_24h_change}
+<<<<<<< HEAD
                         headerText={'DAG PRICE'}
                         value={'$' + werxInfo.usd}
                         info={formatDagPrice(werxInfo, btcInfo)}
+=======
+                        headerText={'WERX PRICE'}
+                        value={'$' + werxInfo.usd}
+                        info={formatWerxPrice(werxInfo, btcInfo)}
+>>>>>>> 984ff72607a33dc813f1e4a6351d6f69f3f4f272
                       />
                       <Card
                         headerText={'NODE OPERATORS'}

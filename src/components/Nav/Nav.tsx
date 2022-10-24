@@ -14,7 +14,7 @@ export const Nav = () => {
             onClick={() => (location.pathname === '/' ? window.location.reload() : navigate('/'))}
           >
             {/* <img className={styles.navSeparator} src={Logo} /> */}
-            <p className={styles.title}>DAG Explorer</p>
+            <p className={styles.title}>WERX Explorer</p>
           </div>
           <div className={styles.rightSide}>
             <Dropdown />

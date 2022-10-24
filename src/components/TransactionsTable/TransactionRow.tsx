@@ -39,7 +39,7 @@ export const TransactionRow = ({
           </div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
             {werxInfo && <div className={styles.usd}>{'($' + formatPrice(tx.amount, werxInfo, 2) + ' USD)'}</div>}
-            <div className={styles.dag}>{formatAmount(tx.amount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(tx.amount, 8)}</div>
           </div>
         </>
       );
@@ -86,7 +86,7 @@ export const TransactionRow = ({
           </div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
             {werxInfo && <div className={styles.usd}>{'($' + formatPrice(tx.amount, werxInfo, 2) + ' USD)'}</div>}
-            <div className={styles.dag}>{formatAmount(tx.amount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(tx.amount, 8)}</div>
           </div>
         </>
       );
@@ -111,7 +111,7 @@ export const TransactionRow = ({
             <ReactTooltip />
           </div>
           <div className={`${styles.txnCell}`}>
-            <div className={styles.dag}>{snapshot.blocks.length}</div>
+            <div className={styles.werx}>{snapshot.blocks.length}</div>
           </div>
         </>
       );

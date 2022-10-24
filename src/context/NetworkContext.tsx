@@ -18,6 +18,7 @@ export const NetworkProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const handleChange = (toNetwork: Network) => {
     setNetwork('testnet');
+<<<<<<< HEAD
     // const environment = process.env.REACT_APP_ENVIRONMENT;
     // let switchToNetwork = toNetwork;
     // if (environment === 'staging') {
@@ -39,6 +40,8 @@ export const NetworkProvider: React.FC<{ children: React.ReactNode }> = ({ child
     // }
     // setNetwork(toNetwork);
 
+=======
+>>>>>>> 984ff72607a33dc813f1e4a6351d6f69f3f4f272
     setNetworkVersion('2.0');
   };
 

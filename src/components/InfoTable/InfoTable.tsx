@@ -18,8 +18,8 @@ export const InfoTable = ({
   totalRewards: number;
   lastUpdatedAt: number;
 }) => {
-  const transformedDagAmount = (totalRewards / Math.pow(10, 8)).toFixed(8);
-  const formattedAmount = formatNumber(transformedDagAmount, NumberFormat.MILLIFY);
+  const transformedWerxAmount = (totalRewards / Math.pow(10, 8)).toFixed(8);
+  const formattedAmount = formatNumber(transformedWerxAmount, NumberFormat.MILLIFY);
   return (
     <div className={styles.tableContainer}>
       {loading ? <SkeletonInfoHeader /> : <InfoHeader title={title} lastUpdatedAt={lastUpdatedAt} />}

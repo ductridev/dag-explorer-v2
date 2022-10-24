@@ -33,24 +33,24 @@ export const TransactionsTable = ({
   const titles = transactions
     ? ['TXN HASH', 'TIMESTAMP', 'SNAPSHOT', 'FROM', 'TO', 'AMOUNT']
     : ['ORDINAL', 'TIMESTAMP', 'BLOCKS COUNT'];
-  const needwerxInfo = transactions && transactions.length > 0;
+  const needWerxInfo = transactions && transactions.length > 0;
   const mql = window.matchMedia('(max-width: 580px)');
 
-  if ((skeleton && skeleton.showSkeleton) || (needwerxInfo && !werxInfo)) {
-    return mql.matches ? (
-      <div className={styles.cards}>
-        <TableCards limit={limit} showSkeleton={skeleton.showSkeleton} titles={titles} />
-      </div>
-    ) : (
-      <SkeletonTransactionsTable
-        headerCols={skeleton.headerCols}
-        forSnapshots={skeleton.forSnapshots}
-        rows={limit}
-        headerText={headerText}
-        icon={icon}
-      />
-    );
-  }
+  // if ((skeleton && skeleton.showSkeleton) || (needWerxInfo && !werxInfo)) {
+  //   return mql.matches ? (
+  //     <div className={styles.cards}>
+  //       <TableCards limit={limit} showSkeleton={skeleton.showSkeleton} titles={titles} />
+  //     </div>
+  //   ) : (
+  //     <SkeletonTransactionsTable
+  //       headerCols={skeleton.headerCols}
+  //       forSnapshots={skeleton.forSnapshots}
+  //       rows={limit}
+  //       headerText={headerText}
+  //       icon={icon}
+  //     />
+  //   );
+  // }
 
   let txRows =
     transactions &&
@@ -61,7 +61,7 @@ export const TransactionsTable = ({
     snapshots &&
     snapshots.length > 0 &&
     snapshots.map((snap) => <TransactionRow werxInfo={werxInfo} key={snap.hash} snapshot={snap} icon={icon} />);
-
+  
   const emptyRows = [];
   for (let i = 0; i < limit; i++) {
     emptyRows.push(<TransactionRow key={i} tx={null} snapshot={null} />);

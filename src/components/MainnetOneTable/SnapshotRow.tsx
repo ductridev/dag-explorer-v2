@@ -24,9 +24,9 @@ export const SnapshotRow = ({ icon, snapshot }: { icon?: JSX.Element; snapshot?:
           <div className={styles.txnCell}>{snapshot.txCount}</div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
             {werxInfo && (
-              <div className={styles.usd}>{'($' + formatPrice(snapshot.dagAmount, werxInfo, 2) + ' USD)'}</div>
+              <div className={styles.usd}>{'($' + formatPrice(snapshot.werxAmount, werxInfo, 2) + ' USD)'}</div>
             )}
-            <div className={styles.dag}>{formatAmount(snapshot.dagAmount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(snapshot.werxAmount, 8)}</div>
           </div>
         </>
       );
@@ -43,9 +43,13 @@ export const SnapshotRow = ({ icon, snapshot }: { icon?: JSX.Element; snapshot?:
           <div className={`${styles.txnCell} ${styles.amount}`}>{formatAmount(snapshot.feeAmount, 8)}</div>
           <div className={`${styles.txnCell} ${styles.amount}`}>
             {werxInfo && (
+<<<<<<< HEAD
               <div className={styles.usd}>{'($' + formatPrice(snapshot.dagAmount, werxInfo, 2) + ' USD)'}</div>
+=======
+              <div className={styles.usd}>{'($' + formatPrice(snapshot.werxAmount, werxInfo, 2) + ' USD)'}</div>
+>>>>>>> 984ff72607a33dc813f1e4a6351d6f69f3f4f272
             )}
-            <div className={styles.dag}>{formatAmount(snapshot.dagAmount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(snapshot.werxAmount, 8)}</div>
           </div>
         </>
       );

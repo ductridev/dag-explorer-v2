@@ -4,7 +4,7 @@ import { useFetch } from '../../utils/reactQuery';
 import { NetworkContext, NetworkContextType } from '../../context/NetworkContext';
 import { Network } from '../../constants';
 
-const { REACT_APP_TESTNET_BE_URL, REACT_APP_MAINNET_TWO_BE_URL, REACT_APP_DAG_EXPLORER_API_URL } = process.env;
+const { REACT_APP_TESTNET_BE_URL, REACT_APP_MAINNET_TWO_BE_URL, REACT_APP_WERX_EXPLORER_API_URL } = process.env;
 
 const getUrl = () => {
   const { network } = useContext(NetworkContext) as NetworkContextType;
@@ -31,8 +31,8 @@ export const useGetAddressBalance = (address: string) => {
   return useFetch<Balance>(getUrl() + '/' + address + '/balance');
 };
 
-export const useGetAddressTotalRewards = (address: string, network: Exclude<Network, 'mainnet1'>) => {
+export const useGetAddressTotalRewards = (address: string, network: Network) => {
   return useFetch<{ totalAmount: number; isValidator: boolean }>(
-    REACT_APP_DAG_EXPLORER_API_URL + '/' + network + '/addresses/' + address + '/rewards'
+    REACT_APP_WERX_EXPLORER_API_URL + '/' + network + '/addresses/' + address + '/rewards'
   );
 };

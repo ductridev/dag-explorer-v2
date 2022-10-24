@@ -26,7 +26,7 @@ type Params = {
   search_before?: string;
 };
 
-export const AddressDetails = ({ network }: { network: Exclude<Network, 'mainnet'> }) => {
+export const AddressDetails = ({ network }: { network: Network }) => {
   const { addressId } = useParams();
   const { werxInfo } = useContext(PricesContext) as PricesContextType;
   const [addressTxs, setAddressTxs] = useState<Transaction[] | undefined>(undefined);

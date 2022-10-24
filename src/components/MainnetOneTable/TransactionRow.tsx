@@ -38,7 +38,7 @@ export const TransactionRow = ({
             {werxInfo && (
               <div className={styles.usd}>{'($' + formatPrice(transaction.amount, werxInfo, 2) + ' USD)'}</div>
             )}
-            <div className={styles.dag}>{formatAmount(transaction.amount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(transaction.amount, 8)}</div>
           </div>
         </>
       );
@@ -87,7 +87,7 @@ export const TransactionRow = ({
             {werxInfo && (
               <div className={styles.usd}>{'($' + formatPrice(transaction.amount, werxInfo, 2) + ' USD)'}</div>
             )}
-            <div className={styles.dag}>{formatAmount(transaction.amount, 8)}</div>
+            <div className={styles.werx}>{formatAmount(transaction.amount, 8)}</div>
           </div>
         </>
       );

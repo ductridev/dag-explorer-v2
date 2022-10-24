@@ -59,6 +59,21 @@ const SkeletonTransactionRow = ({ isHomePage }: { isHomePage: boolean; forSnapsh
         <div className={`${styles.skeleton} ${styles.value}`} />
       </div>
     </>
+  ) : forSnapshots ? (
+    <>
+      <div className={styles2.txnCell}>
+        <div className={`${styles.skeleton} ${styles.value}`} />
+      </div>
+      <div className={styles2.txnCell}>
+        <div className={`${styles.skeleton} ${styles.value}`} />
+      </div>
+      <div className={styles2.txnCell}>
+        <div className={`${styles.skeleton} ${styles.value}`} />
+      </div>
+      <div className={styles2.txnCell}>
+        <div className={`${styles.skeleton} ${styles.value}`} />
+      </div>
+    </>
   ) : (
     <>
       <div className={styles2.txnCell}>

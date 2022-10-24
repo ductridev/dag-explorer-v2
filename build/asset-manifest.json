@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.78040a7e.css",
+    "main.js": "/static/js/main.8a30779b.js",
+    "static/media/Everett-Medium.otf": "/static/media/Everett-Medium.fe1f0666f6c77437b30c.otf",
+    "static/media/Everett-Light.otf": "/static/media/Everett-Light.cf434141d88c12ded2ef.otf",
+    "static/media/Everett-Regular.otf": "/static/media/Everett-Regular.8cb582d8a8189f60294c.otf",
+    "static/media/IBMPlexMono-Regular.ttf": "/static/media/IBMPlexMono-Regular.d9e7aac4b24188a36180.ttf",
+    "static/media/TWKLausanne-100.woff2": "/static/media/TWKLausanne-100.9f1085c3f265d6933a71.woff2",
+    "static/media/TWKLausanne-150.woff2": "/static/media/TWKLausanne-150.debd0563d588bdcc0c22.woff2",
+    "static/media/TWKLausanne-50.woff2": "/static/media/TWKLausanne-50.975c77202c2a058392cd.woff2",
+    "static/media/TWKLausanne-200.woff2": "/static/media/TWKLausanne-200.fd96d7e31f17d32ac930.woff2",
+    "static/media/TWKLausanne-700.woff2": "/static/media/TWKLausanne-700.b515ba055b3a9d394594.woff2",
+    "static/media/TWKLausanne-250.woff2": "/static/media/TWKLausanne-250.3c230e4b1eb0045609d1.woff2",
+    "static/media/TWKLausanne-400.woff2": "/static/media/TWKLausanne-400.3ab9e07feaae5175c82b.woff2",
+    "static/media/TWKLausanne-550.woff2": "/static/media/TWKLausanne-550.5a85f2f263f152699ca7.woff2",
+    "static/media/TWKLausanne-600.woff2": "/static/media/TWKLausanne-600.4ff5de50b99a0071412f.woff2",
+    "static/media/TWKLausanne-350.woff2": "/static/media/TWKLausanne-350.8c553933bc343685baac.woff2",
+    "static/media/TWKLausanne-500.woff2": "/static/media/TWKLausanne-500.e59d7910aaecee395328.woff2",
+    "static/media/TWKLausanne-750.woff2": "/static/media/TWKLausanne-750.a99d8c4ab9755f4f18fe.woff2",
+    "static/media/TWKLausanne-850.woff2": "/static/media/TWKLausanne-850.7bf56eaa2da1835f5295.woff2",
+    "static/media/TWKLausanne-450.woff2": "/static/media/TWKLausanne-450.434967802f19d3bf5db7.woff2",
+    "static/media/TWKLausanne-650.woff2": "/static/media/TWKLausanne-650.75babd6a485d559877aa.woff2",
+    "static/media/TWKLausanne-800.woff2": "/static/media/TWKLausanne-800.109cf93d439b0fd08558.woff2",
+    "static/media/TWKLausanne-950.woff2": "/static/media/TWKLausanne-950.842d1fb09947195f05f4.woff2",
+    "static/media/TWKLausanne-900.woff2": "/static/media/TWKLausanne-900.0a79bd376f6fdc6e010a.woff2",
+    "static/media/TWKLausanne-300.woff2": "/static/media/TWKLausanne-300.7842412c73d5a28e5f5a.woff2",
+    "static/media/TWKLausanne-1000.woff2": "/static/media/TWKLausanne-1000.1c9a85eb933948422dee.woff2",
+    "index.html": "/index.html",
+    "static/media/ArrowBack.svg": "/static/media/ArrowBack.faa1301278f42ce88f03515f362b973d.svg",
+    "static/media/Copy.svg": "/static/media/Copy.235747fb6152a42c80f26fec61d15bb4.svg",
+    "static/media/ArrowDown.svg": "/static/media/ArrowDown.5712d8241517c178b7bd98263770c970.svg",
+    "static/media/ArrowUp.svg": "/static/media/ArrowUp.e5afc0921490c435450f2880a66a17fe.svg",
+    "main.78040a7e.css.map": "/static/css/main.78040a7e.css.map",
+    "main.8a30779b.js.map": "/static/js/main.8a30779b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78040a7e.css",
+    "static/js/main.8a30779b.js"
+  ]
+}

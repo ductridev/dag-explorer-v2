@@ -15,7 +15,7 @@ import { PricesContext, PricesContextType } from '../../context/PricesContext';
 import { ExportModal } from '../../components/Modals/ExportModal';
 import { AddressShape } from '../../components/Shapes/AddressShape';
 import { isValidAddress } from '../../utils/search';
-import { useGetAddressTotalRewards } from '../../api/block-explorer/address';
+// import { useGetAddressTotalRewards } from '../../api/block-explorer/address';
 import { SPECIAL_ADDRESSES_LIST } from '../../constants/specialAddresses';
 
 const LIMIT = 10;
@@ -31,11 +31,11 @@ export const AddressDetails = ({ network }: { network: Network }) => {
   const { werxInfo } = useContext(PricesContext) as PricesContextType;
   const [addressTxs, setAddressTxs] = useState<Transaction[] | undefined>(undefined);
   const [balance, setBalance] = useState<number | undefined>(undefined);
-  const [allTimeRewards, setAllTimeRewards] = useState<number | undefined>(undefined);
+  // const [allTimeRewards, setAllTimeRewards] = useState<number | undefined>(undefined);
   const [params, setParams] = useState<Params>({ limit: LIMIT });
   const addressInfo = useGetAddressTransactions(addressId, params);
   const addressBalance = useGetAddressBalance(addressId);
-  const totalRewards = useGetAddressTotalRewards(addressId, network);
+  // const totalRewards = useGetAddressTotalRewards(addressId, network);
   const [page, setPage] = useState(0);
   const [lastPage, setLastPage] = useState(false);
   const [error, setError] = useState<string>(undefined);
@@ -66,15 +66,15 @@ export const AddressDetails = ({ network }: { network: Network }) => {
     }
   }, [addressBalance.isFetching]);
 
-  useEffect(() => {
-    if (!totalRewards.isFetching && !totalRewards.isError) {
-      if (totalRewards.data.isValidator) {
-        setAllTimeRewards(totalRewards.data.totalAmount ?? 0);
-      } else {
-        setAllTimeRewards(undefined);
-      }
-    }
-  }, [totalRewards.isFetching]);
+  // useEffect(() => {
+  //   if (!totalRewards.isFetching && !totalRewards.isError) {
+  //     if (totalRewards.data.isValidator) {
+  //       setAllTimeRewards(totalRewards.data.totalAmount ?? 0);
+  //     } else {
+  //       setAllTimeRewards(undefined);
+  //     }
+  //   }
+  // }, [totalRewards.isFetching]);
 
   useEffect(() => {
     if (addressInfo.isError) {
@@ -114,7 +114,12 @@ export const AddressDetails = ({ network }: { network: Network }) => {
     setModalOpen(!modalOpen);
   };
 
-  const skeleton = addressInfo.isLoading || addressBalance.isLoading || totalRewards.isLoading || !werxInfo;
+  // const skeleton = addressInfo.isLoading || addressBalance.isLoading || totalRewards.isLoading || !werxInfo;
+  console.log(addressInfo.isLoading)
+  console.log(addressBalance.isLoading)
+  // console.log(totalRewards.isLoading)
+  console.log(werxInfo)
+  const skeleton = addressInfo.isLoading || addressBalance.isLoading || !werxInfo;
 
   return (
     <>
@@ -140,7 +145,7 @@ export const AddressDetails = ({ network }: { network: Network }) => {
                 <DetailRow
                   borderBottom
                   title={'ADDRESS'}
-                  value={skeleton ? '' : addressId}
+                  value={addressId}
                   skeleton={skeleton}
                   isLong
                   isMain
@@ -148,11 +153,11 @@ export const AddressDetails = ({ network }: { network: Network }) => {
                 <DetailRow
                   borderBottom
                   title={'BALANCE'}
-                  value={skeleton ? '' : balance ? formatAmount(balance, 8) : '0 WERX'}
+                  value={balance ? formatAmount(balance, 8) : '0 WERX'}
                   subValue={skeleton ? '' : balance ? '($' + formatPrice(balance, werxInfo, 2) + ' USD)' : '($0 USD)'}
                   skeleton={skeleton}
                 />
-                {!totalRewards.isFetching && !totalRewards.isLoading && allTimeRewards !== undefined && (
+                {/* {!totalRewards.isFetching && !totalRewards.isLoading && allTimeRewards !== undefined && (
                   <DetailRow
                     title={'ALL-TIME REWARDS RECEIVED'}
                     value={skeleton ? '' : allTimeRewards ? formatAmount(allTimeRewards, 8) : '0 WERX'}
@@ -165,7 +170,7 @@ export const AddressDetails = ({ network }: { network: Network }) => {
                     }
                     skeleton={totalRewards.isLoading || !werxInfo}
                   />
-                )}
+                )} */}
               </div>
             </div>
           </div>

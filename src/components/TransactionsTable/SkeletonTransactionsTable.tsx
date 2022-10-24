@@ -46,7 +46,7 @@ export const SkeletonTransactionsTable = ({
   );
 };
 
-const SkeletonTransactionRow = ({ isHomePage }: { isHomePage: boolean; forSnapshots?: boolean }) => {
+const SkeletonTransactionRow = ({ isHomePage, forSnapshots }: { isHomePage: boolean; forSnapshots?: boolean }) => {
   return isHomePage ? (
     <>
       <div className={styles2.txnCell}>

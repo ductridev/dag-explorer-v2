@@ -31,8 +31,8 @@ export const useGetAddressBalance = (address: string) => {
   return useFetch<Balance>(getUrl() + '/' + address + '/balance');
 };
 
-export const useGetAddressTotalRewards = (address: string, network: Network) => {
-  return useFetch<{ totalAmount: number; isValidator: boolean }>(
-    REACT_APP_WERX_EXPLORER_API_URL + '/' + network + '/addresses/' + address + '/rewards'
-  );
-};
+// export const useGetAddressTotalRewards = (address: string, network: Network) => {
+//   return useFetch<{ totalAmount: number; isValidator: boolean }>(
+//     REACT_APP_WERX_EXPLORER_API_URL + '/' + network + '/addresses/' + address + '/rewards'
+//   );
+// };

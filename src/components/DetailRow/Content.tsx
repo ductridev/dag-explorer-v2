@@ -34,9 +34,13 @@ export const Content = ({
 
   const { skeleton, icon, linkTo, onlyLink, value, isLong, date, copy, subValue, isMain, isStatus } = props;
 
-  return skeleton ? (
-    <div className={`${styles.skeleton} ${styles.value}`} />
-  ) : (
+  // console.log(skeleton)
+  // console.log(value)
+
+  return (
+  // skeleton ? (
+  //   <div className={`${styles.skeleton} ${styles.value}`} />
+  // ) : (
     <div className={`${styles.content} ${isStatus && styles.status}`}>
       {icon && icon}
       <div className={`${styles.value}`}>

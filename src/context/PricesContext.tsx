@@ -3,14 +3,14 @@ import { createContext, useState } from 'react';
 import { useGetPrices } from '../api/coingecko';
 
 export type PricesContextType = {
-  dagInfo: any;
+  werxInfo: any;
   btcInfo: any;
 };
 
 export const PricesContext = createContext<PricesContextType | null>(null);
 
 export const PricesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [dagInfo, setDagInfo] = useState<any>(null);
+  const [werxInfo, setDagInfo] = useState<any>(null);
   const [btcInfo, setBtcInfo] = useState<any>(null);
   // const pricesInfo = useGetPrices();
   // useEffect(() => {
@@ -20,5 +20,5 @@ export const PricesProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   //   }
   // }, [pricesInfo.isFetching]);
 
-  return <PricesContext.Provider value={{ dagInfo: dagInfo, btcInfo: btcInfo }}>{children}</PricesContext.Provider>;
+  return <PricesContext.Provider value={{ werxInfo: werxInfo, btcInfo: btcInfo }}>{children}</PricesContext.Provider>;
 };

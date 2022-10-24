@@ -23,19 +23,6 @@ export const HeaderRow = ({ forSnapshots, headerCols }: { forSnapshots?: boolean
   }
 
   const columns = isHomePage ? (
-    network === 'mainnet1' ? (
-      <>
-        <div className={styles.headerColumn}>
-          <p className={styles.headerText}>{forSnapshots ? 'HEIGHT' : 'TXN HASH'}</p>
-        </div>
-        <div className={styles.headerColumn}>
-          <p className={styles.headerText}>{forSnapshots ? 'TX COUNT' : 'TIMESTAMP'}</p>
-        </div>
-        <div className={`${styles.headerColumn} ${styles.rightAligned}`}>
-          <p className={styles.headerText}>{'AMOUNT'}</p>
-        </div>
-      </>
-    ) : (
       <>
         <div className={styles.headerColumn}>
           <p className={styles.headerText}>{forSnapshots ? 'ORDINAL' : 'TXN HASH'}</p>
@@ -47,24 +34,6 @@ export const HeaderRow = ({ forSnapshots, headerCols }: { forSnapshots?: boolean
           <p className={styles.headerText}>{forSnapshots ? 'BLOCKS' : 'AMOUNT'}</p>
         </div>
       </>
-    )
-  ) : network === 'mainnet1' && forSnapshots ? (
-    <>
-      <div className={`${styles.headerColumn} ${styles.topLeftBorder}`}>
-        <p className={styles.headerText}>HEIGHT</p>
-      </div>
-
-      <div className={styles.headerColumn}>
-        <p className={styles.headerText}>TRANSACTION COUNT</p>
-      </div>
-
-      <div className={clsx(styles.headerColumn, styles.rightAligned)}>
-        <p className={styles.headerText}>FEE</p>
-      </div>
-      <div className={clsx(styles.headerColumn, styles.topRightBorder, styles.rightAligned)}>
-        <p className={styles.headerText}>AMOUNT</p>
-      </div>
-    </>
   ) : (
     <>
       <div className={`${styles.headerColumn} ${styles.topLeftBorder}`}>

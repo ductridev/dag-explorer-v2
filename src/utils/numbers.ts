@@ -15,17 +15,17 @@ export enum NumberFormat {
 
 const formater = new Intl.NumberFormat('en-US', { maximumFractionDigits: 8 });
 
-export const formatDagPrice = (dagInfo, btcInfo) => {
-  const rounded = Math.round((dagInfo.usd + Number.EPSILON) * 100) / 100;
-  const btcEquiv = (dagInfo.usd / btcInfo.usd).toFixed(8);
+export const formatDagPrice = (werxInfo, btcInfo) => {
+  const rounded = Math.round((werxInfo.usd + Number.EPSILON) * 100) / 100;
+  const btcEquiv = (werxInfo.usd / btcInfo.usd).toFixed(8);
   return '$' + rounded + ' USD - ' + btcEquiv + ' BTC';
 };
 
-export const formatMarketVol = (formater, dagInfo) => '24h Trading Vol: $' + formater.format(dagInfo.usd_24h_vol);
+export const formatMarketVol = (formater, werxInfo) => '24h Trading Vol: $' + formater.format(werxInfo.usd_24h_vol);
 
-export const formatPrice = (amount: number, dagInfo: any, toFixed: number) => {
+export const formatPrice = (amount: number, werxInfo: any, toFixed: number) => {
   const formatedValue = (amount / Math.pow(10, 8)).toFixed(8);
-  return formater.format(parseFloat((parseFloat(formatedValue) * dagInfo.usd).toFixed(toFixed)));
+  return formater.format(parseFloat((parseFloat(formatedValue) * werxInfo.usd).toFixed(toFixed)));
 };
 
 export const formatAmount = (amount: number, toFixed: number, forExport?: boolean) => {

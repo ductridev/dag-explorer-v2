@@ -10,7 +10,7 @@ import styles from './StatsSection.module.scss';
 const StatsSection = () => {
   const { network } = useContext(NetworkContext) as NetworkContextType;
 
-  const [dagInfo, setDagInfo] = useState(null);
+  const [werxInfo, setDagInfo] = useState(null);
   const [btcInfo, setBtcInfo] = useState(null);
   const [dagTotalSupply, setDagTotalSupply] = useState(null);
 
@@ -41,42 +41,29 @@ const StatsSection = () => {
     }
   }, [totalSupplyInfo.isFetching]);
 
-  if (network === 'mainnet1') {
-    return (
-      <div className={styles.mainnetStats}>
-        <MainnetStats
-          skeleton={{ showSkeleton: !dagInfo || !dagTotalSupply }}
-          dagInfo={dagInfo}
-          btcInfo={btcInfo}
-          dagSupply={dagTotalSupply}
-        />
-      </div>
-    );
-  }
-
   return (
     <div className={styles.stats}>
       <Card
-        skeleton={{ showSkeleton: !dagInfo || !clusterData || !dagTotalSupply }}
-        badge={dagInfo ? dagInfo.usd_24h_change : ''}
-        headerText={'DAG PRICE'}
-        value={dagInfo ? '$' + dagInfo.usd : ''}
-        info={dagInfo ? formatDagPrice(dagInfo, btcInfo) : ''}
+        skeleton={{ showSkeleton: !werxInfo || !clusterData || !dagTotalSupply }}
+        badge={werxInfo ? werxInfo.usd_24h_change : ''}
+        headerText={'WERX PRICE'}
+        value={werxInfo ? '$' + werxInfo.usd : ''}
+        info={werxInfo ? formatDagPrice(werxInfo, btcInfo) : ''}
       />
       <Card
-        skeleton={{ showSkeleton: !dagInfo || !clusterData || !dagTotalSupply }}
+        skeleton={{ showSkeleton: !werxInfo || !clusterData || !dagTotalSupply }}
         headerText={'MARKET CAP'}
-        value={dagInfo ? '$' + formater.format(dagInfo.usd_market_cap) : ''}
-        info={dagInfo ? formatMarketVol(formater, dagInfo) : ''}
+        value={werxInfo ? '$' + formater.format(werxInfo.usd_market_cap) : ''}
+        info={werxInfo ? formatMarketVol(formater, werxInfo) : ''}
       />
       <Card
-        skeleton={{ showSkeleton: !dagInfo || !clusterData || !dagTotalSupply }}
+        skeleton={{ showSkeleton: !werxInfo || !clusterData || !dagTotalSupply }}
         headerText={'CIRCULATING SUPPLY'}
-        value={formatAmount(dagTotalSupply, 0).replace('DAG', '')}
+        value={formatAmount(dagTotalSupply, 0).replace('WERX', '')}
         info={formatTotalSupply()}
       />
       <Card
-        skeleton={{ showSkeleton: !dagInfo || !clusterData || !dagTotalSupply }}
+        skeleton={{ showSkeleton: !werxInfo || !clusterData || !dagTotalSupply }}
         headerText={'NODE OPERATORS'}
         info={'View Node Explorer'}
         value={clusterData ? clusterData.length + ' validators' : ''}

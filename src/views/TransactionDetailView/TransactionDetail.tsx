@@ -23,7 +23,7 @@ export const TransactionDetail = () => {
   const transaction = useGetTransaction(transactionHash);
   const [data, setData] = useState<Transaction | undefined>(undefined);
 
-  const [dagInfo, setDagInfo] = useState(null);
+  const [werxInfo, setDagInfo] = useState(null);
   const [btcInfo, setBtcInfo] = useState(null);
   // const prices = useGetPrices();
   const [error, setError] = useState<string>(undefined);
@@ -167,7 +167,7 @@ export const TransactionDetail = () => {
                   </div>
                 </div>
                 <div className={`${styles.column2}`}>
-                  {!dagInfo || !clusterData ? (
+                  {!werxInfo || !clusterData ? (
                     <>
                       <SkeletonCard />
                       <SkeletonCard />
@@ -175,10 +175,10 @@ export const TransactionDetail = () => {
                   ) : (
                     <>
                       <Card
-                        badge={dagInfo.usd_24h_change}
+                        badge={werxInfo.usd_24h_change}
                         headerText={'DAG PRICE'}
-                        value={'$' + dagInfo.usd}
-                        info={formatDagPrice(dagInfo, btcInfo)}
+                        value={'$' + werxInfo.usd}
+                        info={formatDagPrice(werxInfo, btcInfo)}
                       />
                       <Card
                         headerText={'NODE OPERATORS'}

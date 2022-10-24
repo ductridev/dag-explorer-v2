@@ -39,11 +39,7 @@ export const NetworkProvider: React.FC<{ children: React.ReactNode }> = ({ child
     // }
     // setNetwork(toNetwork);
 
-    // if (toNetwork === 'mainnet1') {
-    //   setNetworkVersion('1.0');
-    // } else {
-      setNetworkVersion('2.0');
-    // }
+    setNetworkVersion('2.0');
   };
 
   return (

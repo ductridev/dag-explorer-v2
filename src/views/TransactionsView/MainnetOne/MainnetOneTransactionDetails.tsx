@@ -23,7 +23,7 @@ export const MainnetOneTransactionDetails = () => {
   const transactionInfo = useGetTransaction(transactionHash);
   const [error, setError] = useState<string>(undefined);
 
-  const [dagInfo, setDagInfo] = useState(null);
+  const [werxInfo, setDagInfo] = useState(null);
   const [btcInfo, setBtcInfo] = useState(null);
   // const prices = useGetPrices();
 
@@ -48,7 +48,7 @@ export const MainnetOneTransactionDetails = () => {
     }
   }, [transactionInfo.status]);
 
-  const skeleton = transactionInfo.isLoading || !transaction || !dagInfo;
+  const skeleton = transactionInfo.isLoading || !transaction || !werxInfo;
   return (
     <>
       <section className={`${styles.searchMobile}`}>
@@ -79,7 +79,7 @@ export const MainnetOneTransactionDetails = () => {
                         title={'AMOUNT'}
                         value={!skeleton ? formatAmount(transaction.amount, 8) : ''}
                         subValue={
-                          !skeleton && dagInfo ? '($' + formatPrice(transaction.amount, dagInfo, 2) + ' USD)' : ''
+                          !skeleton && werxInfo ? '($' + formatPrice(transaction.amount, werxInfo, 2) + ' USD)' : ''
                         }
                         skeleton={skeleton}
                       />
@@ -153,16 +153,16 @@ export const MainnetOneTransactionDetails = () => {
                   </div>
                 </div>
                 <div className={`${styles.column2}`}>
-                  {!dagInfo ? (
+                  {!werxInfo ? (
                     <>
                       <SkeletonCard />
                     </>
                   ) : (
                     <Card
-                      badge={dagInfo.usd_24h_change}
+                      badge={werxInfo.usd_24h_change}
                       headerText={'DAG PRICE'}
-                      value={'$' + dagInfo.usd}
-                      info={formatDagPrice(dagInfo, btcInfo)}
+                      value={'$' + werxInfo.usd}
+                      info={formatDagPrice(werxInfo, btcInfo)}
                     />
                   )}
                 </div>

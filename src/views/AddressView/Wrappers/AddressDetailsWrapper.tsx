@@ -8,7 +8,7 @@ export const AddressDetailsWrapper = () => {
   const { networkVersion, network } = useContext(NetworkContext);
 
   return networkVersion === '2.0' ? (
-    <AddressDetails network={network as Exclude<Network, 'mainnet1'>} />
+    <AddressDetails network={network as Exclude<Network, 'mainnet'>} />
   ) : (
     <MainnetOneAddressDetails />
   );

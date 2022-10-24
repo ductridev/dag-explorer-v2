@@ -4,7 +4,6 @@ import styles from './HomeView.module.scss';
 import StatsSection from './StatsSection/StatsSection';
 import { useNavigate } from 'react-router-dom';
 import { NetworkContext, NetworkContextType } from '../../context/NetworkContext';
-import MainnetOneHomeTables from './MainnetOneHomeTables';
 import HomeTables from './HomeTables';
 
 const LIMIT = 10;
@@ -31,9 +30,6 @@ export const HomeView = () => {
           <StatsSection />
         </div>
         <div className={`${styles.row} ${styles.fila2}`}>
-          {networkVersion === '1.0' && (
-            <MainnetOneHomeTables limit={LIMIT} refetchEvery={REFETCH_EVERY} handleError={handleError} />
-          )}
           {networkVersion === '2.0' && <HomeTables limit={LIMIT} refetchEvery={REFETCH_EVERY} handleError={handleError} />}
           {!error && (
             <>

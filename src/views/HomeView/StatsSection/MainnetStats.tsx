@@ -5,12 +5,12 @@ import { formatAmount, formatDagPrice, formatMarketVol, formatTotalSupply } from
 const formater = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 export const MainnetStats = ({
   skeleton,
-  dagInfo,
+  werxInfo,
   btcInfo,
   dagSupply,
 }: {
   skeleton?: Skeleton;
-  dagInfo: any;
+  werxInfo: any;
   btcInfo: any;
   dagSupply: any;
 }) => {
@@ -18,16 +18,16 @@ export const MainnetStats = ({
     <>
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
-        badge={dagInfo ? dagInfo.usd_24h_change : ''}
+        badge={werxInfo ? werxInfo.usd_24h_change : ''}
         headerText={'DAG PRICE'}
-        value={dagInfo ? '$' + dagInfo.usd : ''}
-        info={dagInfo ? formatDagPrice(dagInfo, btcInfo) : ''}
+        value={werxInfo ? '$' + werxInfo.usd : ''}
+        info={werxInfo ? formatDagPrice(werxInfo, btcInfo) : ''}
       />
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}
         headerText={'MARKET CAP'}
-        value={dagInfo ? '$' + formater.format(dagInfo.usd_market_cap) : ''}
-        info={dagInfo ? formatMarketVol(formater, dagInfo) : ''}
+        value={werxInfo ? '$' + formater.format(werxInfo.usd_market_cap) : ''}
+        info={werxInfo ? formatMarketVol(formater, werxInfo) : ''}
       />
       <Card
         skeleton={{ showSkeleton: skeleton.showSkeleton }}

@@ -46,25 +46,9 @@ export const SkeletonTransactionsTable = ({
   );
 };
 
-const SkeletonTransactionRow = ({ isHomePage, forSnapshots }: { isHomePage: boolean; forSnapshots?: boolean }) => {
-  const { network } = useContext(NetworkContext) as NetworkContextType;
+const SkeletonTransactionRow = ({ isHomePage }: { isHomePage: boolean; forSnapshots?: boolean }) => {
   return isHomePage ? (
     <>
-      <div className={styles2.txnCell}>
-        <div className={`${styles.skeleton} ${styles.value}`} />
-      </div>
-      <div className={styles2.txnCell}>
-        <div className={`${styles.skeleton} ${styles.value}`} />
-      </div>
-      <div className={styles2.txnCell}>
-        <div className={`${styles.skeleton} ${styles.value}`} />
-      </div>
-    </>
-  ) : network === 'mainnet1' || forSnapshots ? (
-    <>
-      <div className={styles2.txnCell}>
-        <div className={`${styles.skeleton} ${styles.value}`} />
-      </div>
       <div className={styles2.txnCell}>
         <div className={`${styles.skeleton} ${styles.value}`} />
       </div>

@@ -24,10 +24,6 @@ export const Layout = () => {
   useEffect(() => {
     const detectedSubdomain = detectSubdomain();
     switch (detectedSubdomain) {
-      case 'mainnet1-staging':
-      case 'mainnet1':
-        changeNetwork('mainnet1');
-        break;
       case 'mainnet-staging':
       case 'mainnet':
         changeNetwork('mainnet');

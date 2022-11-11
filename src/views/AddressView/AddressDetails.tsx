@@ -17,6 +17,8 @@ import { AddressShape } from '../../components/Shapes/AddressShape';
 import { isValidAddress } from '../../utils/search';
 // import { useGetAddressTotalRewards } from '../../api/block-explorer/address';
 import { SPECIAL_ADDRESSES_LIST } from '../../constants/specialAddresses';
+import { handleFetchedData, handlePagination } from '../../utils/pagination';
+import { FetchedData, Params } from '../../types/requests';
 
 const LIMIT = 10;
 
@@ -30,6 +32,7 @@ export const AddressDetails = ({ network }: { network: Network }) => {
   const { addressId } = useParams();
   const { werxInfo } = useContext(PricesContext) as PricesContextType;
   const [addressTxs, setAddressTxs] = useState<Transaction[] | undefined>(undefined);
+  const [fetchedData, setFetchedData] = useState<FetchedData<Transaction>[] | undefined>([]);
   const [balance, setBalance] = useState<number | undefined>(undefined);
   // const [allTimeRewards, setAllTimeRewards] = useState<number | undefined>(undefined);
   const [params, setParams] = useState<Params>({ limit: LIMIT });
@@ -40,6 +43,8 @@ export const AddressDetails = ({ network }: { network: Network }) => {
   const [lastPage, setLastPage] = useState(false);
   const [error, setError] = useState<string>(undefined);
   const [modalOpen, setModalOpen] = useState(false);
+  const [txsSkeleton, setTxsSkeleton] = useState(false);
+  const [lastPage, setLastPage] = useState(false);
 
   useEffect(() => {
     if (!isValidAddress.test(addressId) && !SPECIAL_ADDRESSES_LIST.includes(addressId)) {
@@ -49,14 +54,11 @@ export const AddressDetails = ({ network }: { network: Network }) => {
 
   useEffect(() => {
     if (!addressInfo.isLoading && !addressInfo.isFetching && !addressInfo.isError) {
-      if (addressInfo.data.length > 0) {
-        setAddressTxs(addressInfo.data);
+      if (addressInfo.data?.data.length > 0) {
+        setAddressTxs(addressInfo.data.data);
       }
-      if (addressInfo.data.length < LIMIT) {
-        setLastPage(true);
-      } else {
-        setLastPage(false);
-      }
+      handleFetchedData(setFetchedData, addressInfo, currentPage);
+      setTxsSkeleton(false);
     }
   }, [addressInfo.isLoading, addressInfo.isFetching]);
 
@@ -82,33 +84,23 @@ export const AddressDetails = ({ network }: { network: Network }) => {
         setError(addressInfo.error.message);
       }
       setAddressTxs(undefined);
-      setLastPage(true);
     }
     if (addressBalance.isError) {
       setError(addressBalance.error.message);
     }
   }, [addressInfo.isError, addressBalance.isError]);
 
-  const handleNextPage = () => {
-    if (addressTxs) {
-      setParams({
-        limit: LIMIT,
-        search_before: addressTxs[LIMIT - 1].hash,
-      });
-      setPage((p) => p + 1);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (addressTxs) {
-      setParams({
-        limit: LIMIT,
-        search_after: addressTxs[0].hash,
-      });
-      setPage((p) => p - 1);
-      setLastPage(false);
-    }
-  };
+  const [handlePrevPage, handleNextPage] = handlePagination<Transaction[], FetchedData<Transaction>[]>(
+    addressTxs,
+    setAddressTxs,
+    fetchedData,
+    currentPage,
+    setCurrentPage,
+    setParams,
+    setLastPage,
+    setTxsSkeleton,
+    LIMIT
+  );
 
   const handleExport = () => {
     setModalOpen(!modalOpen);
@@ -178,14 +170,14 @@ export const AddressDetails = ({ network }: { network: Network }) => {
             <div className={`${styles.flexRowBottom}`}>
               <p className="overviewText">Transactions</p>
               <div className={styles.arrows}>
-                <ArrowButton handleClick={handlePrevPage} disabled={page === 0 || skeleton} />
-                <ArrowButton forward handleClick={handleNextPage} disabled={skeleton || lastPage} />
+                <ArrowButton handleClick={handlePrevPage} disabled={currentPage === 0 || txsSkeleton} />
+                <ArrowButton forward handleClick={handleNextPage} disabled={txsSkeleton || lastPage} />
               </div>
             </div>
           </div>
           <div className={`${styles.row4}`}>
             <TransactionsTable
-              skeleton={{ showSkeleton: skeleton }}
+              skeleton={{ showSkeleton: txsSkeleton }}
               limit={LIMIT}
               transactions={addressTxs}
               icon={<AddressShape />}
@@ -196,8 +188,8 @@ export const AddressDetails = ({ network }: { network: Network }) => {
               <span />
 
               <div className={styles.arrows}>
-                <ArrowButton handleClick={() => handlePrevPage()} disabled={page === 0 || skeleton} />
-                <ArrowButton forward handleClick={() => handleNextPage()} disabled={skeleton || lastPage} />
+                <ArrowButton handleClick={handlePrevPage} disabled={currentPage === 0 || txsSkeleton} />
+                <ArrowButton forward handleClick={handleNextPage} disabled={txsSkeleton || lastPage} />
               </div>
             </div>
           </div>

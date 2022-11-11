@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.78040a7e.css",
-    "main.js": "/static/js/main.8a30779b.js",
+    "main.css": "/static/css/main.a635b2c6.css",
+    "main.js": "/static/js/main.c6a8e6a5.js",
     "static/media/Everett-Medium.otf": "/static/media/Everett-Medium.fe1f0666f6c77437b30c.otf",
     "static/media/Everett-Light.otf": "/static/media/Everett-Light.cf434141d88c12ded2ef.otf",
     "static/media/Everett-Regular.otf": "/static/media/Everett-Regular.8cb582d8a8189f60294c.otf",
@@ -27,15 +27,15 @@
     "static/media/TWKLausanne-300.woff2": "/static/media/TWKLausanne-300.7842412c73d5a28e5f5a.woff2",
     "static/media/TWKLausanne-1000.woff2": "/static/media/TWKLausanne-1000.1c9a85eb933948422dee.woff2",
     "index.html": "/index.html",
-    "static/media/ArrowBack.svg": "/static/media/ArrowBack.faa1301278f42ce88f03515f362b973d.svg",
-    "static/media/Copy.svg": "/static/media/Copy.235747fb6152a42c80f26fec61d15bb4.svg",
-    "static/media/ArrowDown.svg": "/static/media/ArrowDown.5712d8241517c178b7bd98263770c970.svg",
-    "static/media/ArrowUp.svg": "/static/media/ArrowUp.e5afc0921490c435450f2880a66a17fe.svg",
-    "main.78040a7e.css.map": "/static/css/main.78040a7e.css.map",
-    "main.8a30779b.js.map": "/static/js/main.8a30779b.js.map"
+    "static/media/ArrowBack.svg": "/static/media/ArrowBack.d467d821f1663706fa3f94aec92886fd.svg",
+    "static/media/Copy.svg": "/static/media/Copy.913b6d436f8dda436ee8c0c9fbbd35ad.svg",
+    "static/media/ArrowDown.svg": "/static/media/ArrowDown.08eaefbccac456d9ead342b4e8ff479a.svg",
+    "static/media/ArrowUp.svg": "/static/media/ArrowUp.75f70ab11ddc6be3a0e700796f80a34c.svg",
+    "main.a635b2c6.css.map": "/static/css/main.a635b2c6.css.map",
+    "main.c6a8e6a5.js.map": "/static/js/main.c6a8e6a5.js.map"
   },
   "entrypoints": [
-    "static/css/main.78040a7e.css",
-    "static/js/main.8a30779b.js"
+    "static/css/main.a635b2c6.css",
+    "static/js/main.c6a8e6a5.js"
   ]
 }

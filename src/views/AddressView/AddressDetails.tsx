@@ -22,11 +22,11 @@ import { FetchedData, Params } from '../../types/requests';
 
 const LIMIT = 10;
 
-type Params = {
-  limit: number;
-  search_after?: string;
-  search_before?: string;
-};
+// type Params = {
+//   limit: number;
+//   search_after?: string;
+//   search_before?: string;
+// };
 
 export const AddressDetails = ({ network }: { network: Network }) => {
   const { addressId } = useParams();
@@ -39,12 +39,11 @@ export const AddressDetails = ({ network }: { network: Network }) => {
   const addressInfo = useGetAddressTransactions(addressId, params);
   const addressBalance = useGetAddressBalance(addressId);
   // const totalRewards = useGetAddressTotalRewards(addressId, network);
-  const [page, setPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const [lastPage, setLastPage] = useState(false);
   const [error, setError] = useState<string>(undefined);
   const [modalOpen, setModalOpen] = useState(false);
   const [txsSkeleton, setTxsSkeleton] = useState(false);
-  const [lastPage, setLastPage] = useState(false);
 
   useEffect(() => {
     if (!isValidAddress.test(addressId) && !SPECIAL_ADDRESSES_LIST.includes(addressId)) {

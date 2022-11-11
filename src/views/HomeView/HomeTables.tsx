@@ -32,7 +32,7 @@ const HomeTables = ({
     }
     if (transactionsInfo.isError) {
       if (transactionsInfo.error.message !== '404') {
-        setError(transactionsInfo.error.message);
+        // setError(transactionsInfo.error.message);
       }
     }
   }, [snapshotsInfo.isError, transactionsInfo.isError]);
